@@ -22,8 +22,8 @@ class Restaurante:
     
     '''
     def listar_Restaurantes():
-        for i in Restaurante.Restaurantes:
-            print(i)
+        for restaurante in Restaurante.Restaurantes:
+            print(restaurante)
 
 
 Restaurante_praca = Restaurante('Ferrari','Italiano')
