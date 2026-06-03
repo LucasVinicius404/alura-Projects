@@ -1,10 +1,10 @@
 from modelo.Restaurante import Restaurante
 
 restaurante1 = Restaurante("don gordone", 'lanches artesanais')
-restaurante2 = Restaurante("pastelle", "Pastel")
-restaurante3 = Restaurante("Habibs", "Esfiha")
+restaurante1.mudar_estado()
+restaurante1.receber_avaliacao("Lucas", 10)
+restaurante1.receber_avaliacao("Lui", 8)
 
-restaurante3.mudar_estado()
 
 def main():
     Restaurante.listar_restaurantes()

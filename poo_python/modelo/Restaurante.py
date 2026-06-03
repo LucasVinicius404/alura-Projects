@@ -1,3 +1,5 @@
+from modelo.Avaliacao import Avalicao
+
 class Restaurante:
     restaurantes = []
 
@@ -5,13 +7,14 @@ class Restaurante:
         self.nome = nome.title()
         self.categoria = categoria.title()
         self._ativo = False # ._ torna ele privado como private em typescrit
+        self._avaliacao = []
         Restaurante.restaurantes.append(self)
 
     def mudar_estado(self):
         self._ativo = not self._ativo
 
     def __str__(self):
-        return f'{self.nome.ljust(25)} | {self.categoria.ljust(25)} | {self.ativo}'
+        return f'{self.nome.ljust(25)} | {self.categoria.ljust(25)} | {str(self.media_avaliacao).ljust(25)} | {self.ativo}'
     
     '''ou fazer por uma função convencional sem os metodos de python
 
@@ -22,7 +25,7 @@ class Restaurante:
     '''
     @classmethod
     def listar_restaurantes(cls):
-        print(f"{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Status'}")
+        print(f"{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Avaliação'.ljust(25)} | {'Status'} ")
         for restaurante in cls.restaurantes:
             print(restaurante)
     
@@ -30,3 +33,16 @@ class Restaurante:
     def ativo(self):
         return '☑ ativo' if self._ativo else '☒ desativo'
     
+    def receber_avaliacao(self,cliente,nota):
+        avaliacao = Avalicao(cliente, nota)
+        self._avaliacao.append(avaliacao)
+
+    @property
+    def media_avaliacao(self):
+        if not self._avaliacao:
+            return 0
+        soma_das_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
+        quant_notas = len(self._avaliacao)
+
+        return round(soma_das_notas / quant_notas, 1)
+
