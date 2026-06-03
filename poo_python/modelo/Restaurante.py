@@ -30,11 +30,3 @@ class Restaurante:
     def ativo(self):
         return '☑ ativo' if self._ativo else '☒ desativo'
     
-
-    
-restaurante_praca = Restaurante('Ferrari','Italiano')
-restaurante_pizza = Restaurante('Mercedes','Comida alemã')
-
-restaurante_pizza.mudar_estado()
-
-Restaurante.listar_restaurantes()
