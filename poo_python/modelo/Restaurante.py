@@ -34,15 +34,16 @@ class Restaurante:
         return '☑ ativo' if self._ativo else '☒ desativo'
     
     def receber_avaliacao(self,cliente,nota):
-        avaliacao = Avaliacao(cliente, nota)
-        self._avaliacao.append(avaliacao)
+        if 0 < nota <= 5:
+            avaliacao = Avaliacao(cliente, nota)
+            self._avaliacao.append(avaliacao)
 
     @property
     def media_avaliacao(self):
         if not self._avaliacao:
-            return 0
+            return '-'
         soma_das_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
-        quant_notas = len(self._avaliacao)
-
-        return round(soma_das_notas / quant_notas, 1)
+        quantidade_de_notas = len(self._avaliacao)
+        media = round(soma_das_notas / quantidade_de_notas, 1)
+        return media
 
