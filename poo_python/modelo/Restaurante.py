@@ -1,4 +1,4 @@
-from modelo.Avaliacao import Avalicao
+from modelo.Avaliacao import Avaliacao
 
 class Restaurante:
     restaurantes = []
@@ -34,7 +34,7 @@ class Restaurante:
         return '☑ ativo' if self._ativo else '☒ desativo'
     
     def receber_avaliacao(self,cliente,nota):
-        avaliacao = Avalicao(cliente, nota)
+        avaliacao = Avaliacao(cliente, nota)
         self._avaliacao.append(avaliacao)
 
     @property
