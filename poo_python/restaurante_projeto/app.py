@@ -7,13 +7,13 @@ restaurante1 = Restaurante("don gordone", 'lanches artesanais')
 restaurante1.mudar_estado()
 Bebida_suco = Bebida('suco de melancia', '12.0', 'Grande')
 prato = Prato('X-burguer', '20.50',"x-burguer grande")
-print(restaurante1)
+restaurante1.adicionar_no_cardapio(Bebida_suco)
+restaurante1.adicionar_no_cardapio(prato)
 
 
 
 def main():
-    pass
-    
+    restaurante1.exibir_cardapio
 
 
 
