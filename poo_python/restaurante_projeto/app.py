@@ -7,11 +7,10 @@ restaurante1 = Restaurante("don gordone", 'lanches artesanais')
 restaurante1.mudar_estado()
 Bebida_suco = Bebida('suco de melancia', 12.0, 'Grande')
 prato = Prato('X-burguer', 20.50,"x-burguer grande")
-Bebida_suco.aplicar_desconto()
-prato.aplicar_desconto()
 restaurante1.adicionar_no_cardapio(Bebida_suco)
 restaurante1.adicionar_no_cardapio(prato)
-
+Bebida_suco.aplicar_desconto()
+prato.aplicar_desconto()
 
 
 def main():
